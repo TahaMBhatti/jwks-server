@@ -11,14 +11,34 @@ A RESTful JWKS server for CSCE 3550.
 - Expired key and expired JWT support
 - Automated tests with over 80% coverage
 
-## Endpoints
+## Requirements
 
-### POST /auth
+- Python 3
+- pip
 
-Returns a signed JWT.
+## Setup
 
-Example:
+Clone the repository:
 
 ```bash
-curl -X POST http://localhost:8080/auth
+git clone https://github.com/TahaMBhatti/jwks-server.git
+cd jwks-server
 
+Create a virtual environment:
+
+python3 -m venv venv
+
+
+Activate the virtual environment:
+
+source venv/bin/activate
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Run the server:
+
+python app.py
