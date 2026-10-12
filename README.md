@@ -1,44 +1,39 @@
-# Basic JWKS Server
+A JWKS server that will generate RSA keys, signs JWTs and stores private keys safely in SQLite
 
-A RESTful JWKS server for CSCE 3550.
-
-## Features
-
-- RSA key pair generation
-- Unique `kid` values
-- JWT creation using RS256
-- JWKS endpoint for public key verification
-- Expired key and expired JWT support
-- Automated tests with over 80% coverage
-
-## Requirements
-
-- Python 3
-- pip
-
-## Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/TahaMBhatti/jwks-server.git
-cd jwks-server
-
-Create a virtual environment:
-
-python3 -m venv venv
+Requirements:
+Python 3.9 or newer
+pip
 
 
-Activate the virtual environment:
 
-source venv/bin/activate
+Installation: 
+	clone the repository: 
+	git clone https://github.com/TahaMBhatti/jwks-server.git
+	cd jwks-server
+
+	Create and ancticate a virtual environment:
+	python3 -m venv venv
+        source venv/bin/activate
+
+	Install dependencies:
+	pip install -r requirements.txt
+
+Running the server:
+	Start flask app:
+	python app.py
+	(server runs at http://127.0.0.1:8080)
+
+POST /auth
+Issue a signed JWT using valid RSA priv key:
+curl -X POST http://127.0.0.1:8080/auth
+
+request expired JWT:
+curl -X POST "http://127.0.0.1:8080/auth?expired=true" 
 
 
-Install dependencies:
-
-pip install -r requirements.txt
-
-
-Run the server:
-
-python app.py
+Testing:
+automated test suite:
+python -m pytest -v
+	last verified results were:
+	5 automated test passed
+	84% code coverage
