@@ -2,4 +2,17 @@ venv/
 __pycache__/
 .pytest_cache/
 .coverage
+htmlcov/
 
+# SQLite database containing private keys
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Downloaded grading tools
+gradebot
+LICENSE
+
+# macOS files
+.DS_Store
